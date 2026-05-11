@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>四川大学软件工程本科生 | 个人主页</title>
+    <meta
+      name="description"
+      content="四川大学软件工程本科生个人主页，展示项目经历、科研经历、技术栈、竞赛荣誉与简历。"
+    >
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#background">SCU Software Engineering</a>
+      <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#background" data-section-link="background">个人背景</a>
+        <a href="#projects" data-section-link="projects">项目经历</a>
+        <a href="#research" data-section-link="research">科研经历</a>
+        <a href="cv.html">CV</a>
+        <a href="guide.html">Guide</a>
+      </nav>
+    </header>
+
+    <main id="home" class="page-shell">
+      <aside class="profile-panel" aria-label="个人信息">
+        <img class="avatar" src="assets/avatar.jpeg" alt="个人照片">
+        <h1>四川大学软件工程系</h1>
+        <p class="school">2023 - 至今</p>
+        <p class="bio">
+          关注机器学习、深度学习、自然语言处理与智能系统开发，重视从算法建模、数据处理到工程实现的完整实践能力。
+        </p>
+        <div class="profile-actions">
+          <a class="button primary" href="cv.html">查看 CV</a>
+          <a class="button" href="mailto:2994222707@qq.com">联系我</a>
+        </div>
+        <dl class="contact-list">
+          <div>
+            <dt>电话</dt>
+            <dd><a href="tel:13908352768">13908352768</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:2994222707@qq.com">2994222707@qq.com</a></dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>Chengdu, China</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <section class="content-flow">
+        <section id="background" class="section hero-section">
+          <p class="eyebrow">About</p>
+          <h2>四川大学软件工程系本科生，聚焦机器学习与智能系统研发。</h2>
+          <div class="quick-facts" aria-label="关键背景">
+            <div>
+              <strong>教育经历</strong>
+              <span>2023 - 至今 · 四川大学软件工程系</span>
+            </div>
+            <div>
+              <strong>成绩排名</strong>
+              <span>前五学期必修成绩 22/246</span>
+            </div>
+            <div>
+              <strong>英语能力</strong>
+              <span>CET-6 500+</span>
+            </div>
+            <div>
+              <strong>兴趣方向</strong>
+              <span>ML / DL / NLP</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Skills</p>
+            <h2>技术栈</h2>
+          </div>
+          <div class="skill-groups">
+            <article>
+              <h3>编程语言</h3>
+              <div class="tags">
+                <span>C++</span>
+                <span>Java</span>
+                <span>Python</span>
+                <span>JavaScript</span>
+              </div>
+            </article>
+            <article>
+              <h3>前端技术</h3>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Vue</span>
+                <span>React</span>
+              </div>
+            </article>
+            <article>
+              <h3>后端与数据</h3>
+              <div class="tags">
+                <span>Node.js</span>
+                <span>Spring Boot</span>
+                <span>FastAPI</span>
+                <span>MySQL</span>
+              </div>
+            </article>
+            <article>
+              <h3>工具平台</h3>
+              <div class="tags">
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>Linux</span>
+                <span>VS Code</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Selected Projects</p>
+            <h2>主要项目经历</h2>
+          </div>
+          <div class="project-list">
+            <article class="project-card">
+              <div class="item-meta">Knowledge Graph · Graph-RAG · LLM Agents</div>
+              <h3>基于训诂学的汉字知识图谱与词典编撰平台</h3>
+              <p>
+                面向古汉语辞典编撰中的多源异构语料与人工考证成本问题，构建汉字语义演变动态知识图谱，并开发集可视化研判、智能编撰建议与证据溯源于一体的专家辅助平台。
+              </p>
+              <ul>
+                <li>负责数据处理与后端开发，支撑语料清洗、实体关系组织和接口服务。</li>
+                <li>参与以训诂学为内核的“审-比-勘-改”多智能体循证链路设计。</li>
+                <li>技术栈：React、FastAPI、Python、Graph-RAG、知识图谱。</li>
+              </ul>
+            </article>
+
+            <article class="project-card">
+              <div class="item-meta">QSPR · Genetic Algorithm · RDKit</div>
+              <h3>面向三次采油的 AI 驱动型分子反向设计平台</h3>
+              <p>
+                围绕降低三次采油表面活性剂界面张力的目标，搭建“生成、预测、筛选、进化”闭环平台，用虚拟筛选与定向优化替代高成本湿实验流程。
+              </p>
+              <ul>
+                <li>负责随机森林 QSPR 代理模型训练、遗传算法分子生成和分子特征维度对齐。</li>
+                <li>嵌入化学规则约束与模型验证流程，提升分子合规性与筛选效率。</li>
+                <li>技术栈：Random Forest、Genetic Algorithm、RDKit、SMILES、Pandas。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="research" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Research</p>
+            <h2>科研经历</h2>
+          </div>
+          <article class="timeline-item">
+            <div class="item-date">PU Learning · Logistic Regression</div>
+            <h3>结构标签噪声下 PU 学习逻辑回归模型研究</h3>
+            <p>
+              探究经典逻辑回归模型在 PU 学习背景下的性能，围绕真实场景中的结构标签噪声与 SAR 假设挑战，构建可控随机与结构 PU 噪声注入机制，并提出 P-MLR 倾向加权改进逻辑回归模型。
+            </p>
+            <p>
+              通过参数化加权分支解耦目标类别分布与特征依赖标注倾向，在 5 个表格和非表格基准数据集上验证模型鲁棒性。该方法保留线性模型可解释性与轻量在线推理复杂度，尤其适配医疗与结构化表格数据场景。
+            </p>
+          </article>
+        </section>
+
+        <section class="section two-column">
+          <div>
+            <div class="section-heading">
+              <p class="eyebrow">Competitions</p>
+              <h2>竞赛与荣誉</h2>
+            </div>
+            <ul class="compact-list">
+              <li>大学生创新创业大赛项目负责人</li>
+              <li>校级大学生创新创业大赛成员</li>
+              <li>计算机设计大赛省赛经历</li>
+              <li>美国大学生数学建模竞赛经历</li>
+              <li>蓝桥杯省赛获奖</li>
+              <li>2023-2024 学年综合一等奖学金</li>
+              <li>2024-2025 学年综合三等奖学金</li>
+              <li>MIT 暑期“大川视界”科技加速营优秀学员</li>
+              <li>NUS summer workshop 暑期访学</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="section-heading">
+              <p class="eyebrow">Internship</p>
+              <h2>实习经历</h2>
+            </div>
+            <article class="timeline-item compact">
+              <div class="item-date">2025.07 - 2025.08 · 深圳</div>
+              <h3>九天创智（深圳）科技有限公司 · 算法开发实习生</h3>
+              <ul>
+                <li>参与算法模块开发与维护，负责深度学习模型性能优化及边界条件测试。</li>
+                <li>设计自动化测试脚本，对模型在不同数据集上的表现进行回归测试。</li>
+                <li>协助数据清洗与特征工程，提升训练数据质量与规范性。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">More</p>
+            <h2>其他经历</h2>
+          </div>
+          <ul class="compact-list columns">
+            <li>“光影川大 · 毕业季之美”主题摄影比赛二等奖</li>
+            <li>“匠心逐影”国风建筑摄影大赛三等奖</li>
+            <li>思政主题微视频大赛一等奖</li>
+            <li>四川大学学院创业就业部干事</li>
+            <li>班级团支书（2023.09 - 2024.09）</li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 四川大学软件工程系本科生</span>
+      <span>GitHub Pages</span>
+    </footer>
+
+    <script src="assets/script.js"></script>
+  </body>
+</html>
