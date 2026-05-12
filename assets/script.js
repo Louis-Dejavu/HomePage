@@ -98,7 +98,7 @@ const translations = new Map([
   ["思政主题微视频大赛一等奖", "First prize, ideological and political micro-video contest"],
   ["四川大学学院创业就业部干事", "Officer, Entrepreneurship and Employment Department, Sichuan University"],
   ["班级团支书（2023.09 - 2024.09）", "Class Youth League Branch Secretary (Sep 2023 - Sep 2024)"],
-  ["© 2026 四川大学软件工程系本科生", "© 2026 Software Engineering Undergraduate, Sichuan University"],
+  ["© 范盛颉 四川大学软件工程系", "© Fanshengjie Department of Software Engineering, Sichuan University"],
   ["四川大学软件工程系本科生", "Software Engineering Undergraduate, Sichuan University"],
   ["四川大学软件工程系本科生 · 机器学习 / 深度学习 / 自然语言处理", "Software Engineering Undergraduate, Sichuan University · ML / DL / NLP"],
   ["Chengdu, China", "Chengdu, China"],
@@ -242,3 +242,23 @@ if (sections.length) {
 }
 
 applyLanguage(preferredLanguage);
+
+const printTitle = "cv|范盛颉";
+const originalTitle = document.title;
+
+window.printCv = () => {
+  document.title = printTitle;
+  window.print();
+};
+
+window.addEventListener("beforeprint", () => {
+  if (document.body.classList.contains("cv-page")) {
+    document.title = printTitle;
+  }
+});
+
+window.addEventListener("afterprint", () => {
+  if (document.body.classList.contains("cv-page")) {
+    document.title = originalTitle;
+  }
+});

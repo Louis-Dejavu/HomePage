@@ -492,108 +492,125 @@ a:hover {
 }
 
 .cv-document {
-  width: calc(100% - 32px);
-  max-width: 1320px;
+  position: relative;
+  width: min(210mm, calc(100% - 32px));
+  min-height: 297mm;
   margin: 24px auto 64px;
-  padding: 36px;
+  padding: 18mm 20mm;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border-radius: 2px;
+  box-shadow: 0 10px 34px rgba(22, 33, 43, 0.12);
 }
 
-.cv-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  gap: 24px;
-  align-items: start;
-  padding-bottom: 28px;
-  border-bottom: 2px solid var(--ink);
+.resume-classic {
+  color: #07111d;
+  font-family:
+    "Times New Roman", "Songti SC", "SimSun", "Noto Serif CJK SC", serif;
+  font-size: 15.6px;
+  line-height: 1.35;
 }
 
-.cv-title-block h1 {
-  margin-bottom: 10px;
+.resume-classic .print-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
 }
 
-.cv-subtitle {
-  margin: 0;
-  color: #44515e;
-  font-size: 17px;
-  font-weight: 650;
+.resume-header {
+  margin-bottom: 26px;
+  text-align: center;
 }
 
-.cv-contact-line {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 14px;
+.resume-header h1 {
+  margin: 0 0 4px;
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
-.cv-photo {
-  width: 132px;
-  height: 166px;
-  object-fit: cover;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+.resume-header p {
+  margin: 3px 0;
+  font-size: 16.5px;
+  line-height: 1.35;
 }
 
-.print-button {
-  align-self: start;
+.resume-header a {
+  color: inherit;
 }
 
-.cv-layout {
-  display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
-  gap: 32px;
-  margin-top: 28px;
+.resume-header span {
+  margin: 0 6px;
 }
 
-.cv-sidebar {
-  padding-right: 28px;
-  border-right: 1px solid var(--line);
+.resume-section {
+  margin-top: 16px;
 }
 
-.cv-section {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--line);
+.resume-section h2 {
+  margin: 0 0 7px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #222;
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 500;
 }
 
-.cv-section:first-child {
-  padding-top: 0;
-}
-
-.cv-section:last-child {
-  border-bottom: 0;
-}
-
-.cv-section.compact-block {
-  padding: 22px 0;
-}
-
-.cv-item + .cv-item {
-  margin-top: 24px;
-}
-
-.cv-item-head {
+.resume-entry {
   display: flex;
   justify-content: space-between;
   gap: 18px;
-  align-items: baseline;
+  margin-top: 4px;
+  align-items: flex-start;
 }
 
-.cv-item-head span {
-  flex: 0 0 auto;
-  color: var(--gold);
-  font-size: 13px;
+.resume-entry.compact {
+  align-items: baseline;
+  margin-top: 9px;
+}
+
+.resume-entry h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.28;
   font-weight: 800;
 }
 
-.mini-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.resume-entry h3 span {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.resume-entry p {
+  margin: 2px 0;
+}
+
+.resume-date {
+  flex: 0 0 auto;
+  min-width: 152px;
+  text-align: right;
+  font-style: italic;
+}
+
+.resume-section ul {
+  margin: 4px 0 0 26px;
+  padding: 0;
+}
+
+.resume-section li {
+  margin: 1px 0;
+}
+
+.resume-section > p {
+  margin: 3px 0;
+}
+
+.resume-section strong {
+  font-weight: 800;
 }
 
 code {
@@ -619,8 +636,8 @@ code {
     grid-template-columns: 1fr;
   }
 
-  .cv-layout {
-    grid-template-columns: 280px minmax(0, 1fr);
+  .resume-classic {
+    font-size: 14.6px;
   }
 }
 
@@ -675,28 +692,24 @@ code {
   .quick-facts,
   .skill-groups,
   .two-column,
-  .guide-grid,
-  .cv-layout {
+  .guide-grid {
     grid-template-columns: 1fr;
   }
 
-  .cv-sidebar {
-    padding-right: 0;
-    border-right: 0;
-  }
-
-  .cv-top {
-    grid-template-columns: 1fr;
-  }
-
-  .cv-photo {
-    order: -1;
+  .resume-entry,
+  .resume-entry.compact {
+    flex-direction: column;
+    gap: 2px;
   }
 
   .guide-top,
-  .cv-item-head,
   .site-footer {
     flex-direction: column;
+  }
+
+  .resume-date {
+    min-width: 0;
+    text-align: left;
   }
 
   .guide-top {
@@ -707,16 +720,36 @@ code {
     columns: 1;
   }
 
-  .document-shell,
-  .cv-document {
+  .document-shell {
     width: calc(100% - 24px);
     margin-top: 16px;
+  }
+
+  .cv-document {
+    width: calc(100% - 24px);
+    min-height: auto;
+    margin-top: 16px;
+    padding: 28px 24px;
   }
 }
 
 @media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html,
   body {
+    width: 210mm;
+    height: 297mm;
     background: #ffffff;
+    overflow: hidden;
   }
 
   .site-header,
@@ -724,26 +757,92 @@ code {
     display: none;
   }
 
-  .cv-document,
   .document-shell {
-    width: 100%;
+    width: 210mm;
     max-width: none;
+    min-height: 0;
     margin: 0;
-    padding: 0;
+    padding: 8mm 9mm;
     border: 0;
+    border-radius: 0;
     box-shadow: none;
   }
 
-  .cv-top {
-    grid-template-columns: minmax(0, 1fr) auto;
+  .cv-document {
+    width: 210mm;
+    height: 297mm;
+    max-width: none;
+    margin: 0;
+    padding: 11mm 13mm;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    font-size: 10.45pt;
+    line-height: 1.24;
   }
 
-  .cv-layout {
-    grid-template-columns: 30% 1fr;
-    gap: 24px;
+  .resume-header {
+    margin-bottom: 5mm;
   }
 
-  .cv-section {
+  .resume-header h1 {
+    font-size: 25pt;
+    line-height: 1.05;
+  }
+
+  .resume-header p {
+    margin: 0.5mm 0;
+    font-size: 10.5pt;
+    line-height: 1.22;
+  }
+
+  .resume-section {
+    margin-top: 3.2mm;
     break-inside: avoid;
+  }
+
+  .resume-section h2 {
+    margin-bottom: 1.2mm;
+    padding-bottom: 0.6mm;
+    font-size: 13.2pt;
+    line-height: 1.05;
+  }
+
+  .resume-entry {
+    gap: 4mm;
+    margin-top: 0.8mm;
+  }
+
+  .resume-entry.compact {
+    margin-top: 2mm;
+  }
+
+  .resume-entry h3 {
+    font-size: 10.8pt;
+    line-height: 1.18;
+  }
+
+  .resume-entry p,
+  .resume-section > p {
+    margin: 0.4mm 0;
+  }
+
+  .resume-date {
+    min-width: 33mm;
+  }
+
+  .resume-section ul {
+    margin-top: 0.7mm;
+    margin-left: 6mm;
+  }
+
+  .resume-section li {
+    margin: 0.2mm 0;
+  }
+
+  .resume-section:nth-of-type(5) p,
+  .resume-section:nth-of-type(6) p {
+    margin: 0.8mm 0;
   }
 }
