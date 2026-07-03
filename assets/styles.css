@@ -379,6 +379,78 @@ a:hover {
   column-gap: 28px;
 }
 
+.inline-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent-dark);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(31, 111, 104, 0.45);
+  transition:
+    color 0.18s ease,
+    text-decoration-color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.inline-trigger::after {
+  content: "↗";
+  color: var(--gold);
+  font-size: 0.84em;
+  font-weight: 800;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.inline-trigger:hover,
+.inline-trigger:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--gold);
+}
+
+.inline-trigger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31, 111, 104, 0.14);
+  border-radius: 6px;
+}
+
+.title-trigger {
+  color: #132633;
+  font-size: inherit;
+  font-weight: 820;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(166, 111, 31, 0.55);
+}
+
+.title-trigger::after {
+  content: "查看详情";
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transform: none;
+}
+
+.title-trigger:hover,
+.title-trigger:focus-visible {
+  color: var(--accent-dark);
+}
+
 .timeline-item.compact {
   padding: 0;
   background: transparent;
@@ -491,12 +563,138 @@ a:hover {
   color: #45515d;
 }
 
+.modal-shell[hidden] {
+  display: none;
+}
+
+.modal-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(23, 33, 43, 0.62);
+}
+
+.modal-dialog {
+  position: relative;
+  width: min(920px, calc(100% - 24px));
+  max-height: calc(100vh - 40px);
+  margin: 20px auto;
+  background: var(--surface);
+  border-radius: 14px;
+  box-shadow: 0 28px 70px rgba(22, 33, 43, 0.22);
+  overflow: auto;
+}
+
+.modal-close {
+  position: sticky;
+  top: 14px;
+  left: calc(100% - 54px);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 14px 14px 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-content {
+  padding: 0 28px 28px;
+}
+
+.modal-article h2 {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  line-height: 1.2;
+}
+
+.modal-article p {
+  margin: 0 0 12px;
+  color: #45515d;
+}
+
+.modal-article ul {
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+.modal-article li + li {
+  margin-top: 8px;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.modal-figure {
+  margin: 18px 0 0;
+  padding: 14px;
+  background: #fbfcfd;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.modal-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modal-figure figcaption,
+.modal-caption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.preview-frame {
+  display: block;
+  width: 100%;
+  min-height: 72vh;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f7f9fb;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 .cv-document {
   position: relative;
   width: min(210mm, calc(100% - 32px));
   min-height: 297mm;
   margin: 24px auto 64px;
-  padding: 18mm 20mm;
+  padding: 15mm 17mm;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 2px;
@@ -506,9 +704,11 @@ a:hover {
 .resume-classic {
   color: #07111d;
   font-family:
-    "Times New Roman", "Songti SC", "SimSun", "Noto Serif CJK SC", serif;
-  font-size: 15.6px;
-  line-height: 1.35;
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-size: 14.6px;
+  line-height: 1.48;
+  text-rendering: optimizeLegibility;
 }
 
 .resume-classic .print-button {
@@ -521,21 +721,35 @@ a:hover {
 }
 
 .resume-header {
-  margin-bottom: 26px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 31mm;
+  align-items: start;
+  gap: 22px;
+  margin-bottom: 8px;
+  padding: 0 0 3px;
+  text-align: left;
+}
+
+.resume-photo {
+  display: block;
+  width: 29mm;
+  height: 36mm;
+  object-fit: cover;
+  object-position: center 42%;
+  border: 1px solid #d8dde4;
 }
 
 .resume-header h1 {
-  margin: 0 0 4px;
-  font-size: 38px;
-  line-height: 1.1;
-  font-weight: 800;
+  margin: 9px 0 16px;
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 850;
   letter-spacing: 0;
 }
 
 .resume-header p {
-  margin: 3px 0;
-  font-size: 16.5px;
+  margin: 6px 0;
+  font-size: 15.2px;
   line-height: 1.35;
 }
 
@@ -544,40 +758,42 @@ a:hover {
 }
 
 .resume-header span {
-  margin: 0 6px;
+  margin: 0 4px;
 }
 
 .resume-section {
-  margin-top: 16px;
+  margin-top: 7px;
 }
 
 .resume-section h2 {
-  margin: 0 0 7px;
-  padding-bottom: 3px;
-  border-bottom: 1px solid #222;
-  font-size: 22px;
-  line-height: 1.15;
-  font-weight: 500;
+  margin: 0 0 5px;
+  padding-bottom: 2px;
+  border-bottom: 3px solid #2e5d85;
+  color: #2d5a80;
+  font-size: 19px;
+  line-height: 1.1;
+  font-weight: 850;
 }
 
 .resume-entry {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: 135px minmax(0, 1fr) 190px;
+  align-items: baseline;
+  gap: 12px;
   margin-top: 4px;
-  align-items: flex-start;
 }
 
 .resume-entry.compact {
   align-items: baseline;
-  margin-top: 9px;
+  margin-top: 6px;
 }
 
 .resume-entry h3 {
   margin: 0;
-  font-size: 17px;
-  line-height: 1.28;
-  font-weight: 800;
+  font-size: 15.9px;
+  line-height: 1.22;
+  font-weight: 850;
+  text-align: center;
 }
 
 .resume-entry h3 span {
@@ -586,27 +802,38 @@ a:hover {
 }
 
 .resume-entry p {
-  margin: 2px 0;
+  margin: 0;
 }
 
 .resume-date {
-  flex: 0 0 auto;
-  min-width: 152px;
+  min-width: 0;
   text-align: right;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.resume-entry .resume-date {
+  text-align: left;
+}
+
+.resume-role {
+  text-align: right;
+  font-weight: 850;
 }
 
 .resume-section ul {
-  margin: 4px 0 0 26px;
+  margin: 3px 0 0 19px;
   padding: 0;
 }
 
 .resume-section li {
   margin: 1px 0;
+  padding-left: 2px;
 }
 
 .resume-section > p {
-  margin: 3px 0;
+  margin: 2px 0;
 }
 
 .resume-section strong {
@@ -636,8 +863,12 @@ code {
     grid-template-columns: 1fr;
   }
 
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+
   .resume-classic {
-    font-size: 14.6px;
+    font-size: 14.2px;
   }
 }
 
@@ -698,8 +929,22 @@ code {
 
   .resume-entry,
   .resume-entry.compact {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .resume-header {
+    min-height: 0;
+    padding: 0;
+    text-align: left;
+  }
+
+  .resume-photo {
+    position: static;
+    display: block;
+    width: 96px;
+    height: 120px;
+    margin: 0 0 14px auto;
   }
 
   .guide-top,
@@ -709,6 +954,11 @@ code {
 
   .resume-date {
     min-width: 0;
+    text-align: left;
+  }
+
+  .resume-entry h3,
+  .resume-role {
     text-align: left;
   }
 
@@ -730,6 +980,25 @@ code {
     min-height: auto;
     margin-top: 16px;
     padding: 28px 24px;
+  }
+
+  .modal-dialog {
+    width: calc(100% - 16px);
+    max-height: calc(100vh - 16px);
+    margin: 8px auto;
+  }
+
+  .modal-content {
+    padding: 0 18px 22px;
+  }
+
+  .modal-close {
+    top: 10px;
+    margin-top: 10px;
+  }
+
+  .preview-frame {
+    min-height: 62vh;
   }
 }
 
@@ -773,76 +1042,100 @@ code {
     height: 297mm;
     max-width: none;
     margin: 0;
-    padding: 11mm 13mm;
+    padding: 9mm 12mm;
     border: 0;
     border-radius: 0;
     box-shadow: none;
     overflow: hidden;
-    font-size: 10.45pt;
-    line-height: 1.24;
+    font-size: 10.35pt;
+    line-height: 1.43;
   }
 
   .resume-header {
-    margin-bottom: 5mm;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 28mm;
+    gap: 8mm;
+    min-height: 0;
+    margin-bottom: 3mm;
+    padding: 0 0 1mm;
+    text-align: left;
+  }
+
+  .resume-photo {
+    position: static;
+    display: block;
+    width: 29mm;
+    height: 36mm;
+    margin: 0;
+    border-width: 0.25mm;
   }
 
   .resume-header h1 {
-    font-size: 25pt;
-    line-height: 1.05;
+    margin: 5mm 0 4.5mm;
+    font-size: 27pt;
+    line-height: 1;
   }
 
   .resume-header p {
-    margin: 0.5mm 0;
-    font-size: 10.5pt;
+    margin: 1.4mm 0;
+    font-size: 10.3pt;
     line-height: 1.22;
   }
 
   .resume-section {
-    margin-top: 3.2mm;
+    margin-top: 2.5mm;
     break-inside: avoid;
   }
 
   .resume-section h2 {
-    margin-bottom: 1.2mm;
-    padding-bottom: 0.6mm;
-    font-size: 13.2pt;
+    margin-bottom: 1mm;
+    padding-bottom: 0.45mm;
+    border-bottom-width: 0.75mm;
+    font-size: 12.6pt;
     line-height: 1.05;
   }
 
   .resume-entry {
-    gap: 4mm;
-    margin-top: 0.8mm;
+    display: grid;
+    grid-template-columns: 32mm minmax(0, 1fr) 34mm;
+    gap: 3mm;
+    align-items: baseline;
+    margin-top: 0.9mm;
   }
 
   .resume-entry.compact {
-    margin-top: 2mm;
+    display: grid;
+    grid-template-columns: 32mm minmax(0, 1fr) 34mm;
+    margin-top: 1.5mm;
   }
 
   .resume-entry h3 {
-    font-size: 10.8pt;
-    line-height: 1.18;
+    font-size: 10.35pt;
+    line-height: 1.16;
+    text-align: center;
   }
 
   .resume-entry p,
   .resume-section > p {
-    margin: 0.4mm 0;
+    margin: 0.25mm 0;
   }
 
   .resume-date {
-    min-width: 33mm;
+    min-width: 0;
+    text-align: left;
   }
 
   .resume-section ul {
     margin-top: 0.7mm;
-    margin-left: 6mm;
+    margin-left: 5mm;
   }
 
   .resume-section li {
-    margin: 0.2mm 0;
+    margin: 0.06mm 0;
   }
 
   .resume-section:nth-of-type(5) p,
   .resume-section:nth-of-type(6) p {
-    margin: 0.8mm 0;
+    margin: 0.5mm 0;
   }
 }

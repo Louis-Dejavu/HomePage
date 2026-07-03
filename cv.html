@@ -28,35 +28,30 @@
       <button class="button primary print-button" type="button" onclick="printCv()">打印 / 保存 PDF</button>
 
       <header class="resume-header">
-        <h1>范盛颉</h1>
-        <p>
-          <a href="tel:13908352768">13908352768</a>
-          <span>|</span>
-          <a href="mailto:2994222707@qq.com">2994222707@qq.com</a>
-          <span>|</span>
-          四川大学
-        </p>
-        <p>
-          GitHub: Louis-Dejavu
-          <span>|</span>
-          专业兴趣方向：深度学习 / 自然语言处理（NLP）/ 计算机视觉
-        </p>
+        <div class="resume-header-copy">
+          <h1>范盛颉</h1>
+          <p>兴趣方向：算法开发实习 / 深度学习 / 自然语言处理（NLP）</p>
+          <p>
+            电话：<a href="tel:13908352768">13908352768</a>
+            <span>|</span>
+            邮箱：<a href="mailto:2023141470277@stu.scu.edu.cn">2023141470277@stu.scu.edu.cn</a>
+            <span>|</span>
+            GitHub: Louis-Dejavu
+ 
+          </p>
+        </div>
+        <img class="resume-photo" src="assets/avatar.jpeg" alt="范盛颉照片">
       </header>
 
       <section class="resume-section">
         <h2>教育背景</h2>
         <div class="resume-entry">
-          <div>
-            <h3>四川大学</h3>
-            <p>软件工程</p>
-          </div>
-          <div class="resume-date">
-            <p>成都，中国</p>
-            <p>2023.09 - 2027.06（预计）</p>
-          </div>
+          <p class="resume-date">2023.09 - 2027.06（预计）</p>
+          <h3>四川大学</h3>
+          <p class="resume-role">软件工程</p>
         </div>
         <ul>
-          <li><strong>学业成绩：</strong>前五学期必修成绩排名 22 / 246；大学英语六级 500+</li>
+          <li><strong>学业成绩：前五学期必修成绩排名 22 / 246；大学英语六级 500+</strong></li>
           <li><strong>荣誉奖项：</strong>2023-2024 学年综合一等奖学金、2024-2025 学年综合三等奖学金</li>
           <li><strong>核心课程：</strong>数据结构与算法、操作系统、计算机网络、面向对象程序设计、机器学习、离散数学</li>
           <li><strong>海外访学：</strong>MIT 暑期“大川视界”科技加速营优秀学员；NUS summer workshop 暑期访学</li>
@@ -66,18 +61,20 @@
       <section class="resume-section">
         <h2>项目与科研经历</h2>
         <div class="resume-entry compact">
-          <h3>基于训诂学的汉字知识图谱与词典编撰平台 <span>| 项目负责人</span></h3>
           <p class="resume-date">2025.09 - 至今</p>
+          <h3>基于训诂学的汉字知识图谱与词典编撰平台</h3>
+          <p class="resume-role">项目负责人</p>
         </div>
         <ul>
           <li>主持大学生创新创业训练计划项目，旨在数字化传统训诂学成果，构建大规模汉字演变知识图谱。</li>
-          <li>设计系统架构，后端采用 Spring Boot，集成 Neo4j 图数据库存储汉字形音义的复杂关联关系。</li>
-          <li>开发 Vue.js 前端交互界面，实现多用户协同编撰、审核及图谱可视化展示功能。</li>
+          <li>设计系统架构，React + Fast API ，集成 Neo4j 图数据库存储汉字形音义的复杂关联关系。</li>
+          <li>开发前端交互界面，实现多用户协同编撰、审核及图谱可视化展示功能。</li>
         </ul>
 
         <div class="resume-entry compact">
-          <h3>面向三次采油的 AI 驱动型分子反向设计平台 <span>| 核心开发</span></h3>
           <p class="resume-date">2025.09 - 2026.04</p>
+          <h3>面向三次采油的 AI 驱动型分子反向设计平台</h3>
+          <p class="resume-role">核心开发</p>
         </div>
         <ul>
           <li>搭建“生成、预测、筛选、进化”闭环分子设计流程，以降低表面活性剂界面张力为优化目标。</li>
@@ -86,8 +83,10 @@
         </ul>
 
         <div class="resume-entry compact">
-          <h3>Propensity-Weighted Modified Logistic Regression for Robust PU Learning under Structural Label Noise <span>| ICIC 2026（CCF-C）Oral 录用</span></h3>
-          <p class="resume-date">2025.05 - 至今</p>
+          <p class="resume-date">2025.05 - 2026.04</p>
+          <h3>P-MLR for Robust PU Learning under Structural Label Noise</h3>
+          <p class="resume-role">ICIC 2026 (Oral)</p>
+
         </div>
         <ul>
           <li>围绕 Positive-Unlabeled（PU）learning 中特征依赖标注导致的结构标签噪声，研究 SAR 假设下的鲁棒二分类建模问题。</li>
@@ -99,14 +98,9 @@
       <section class="resume-section">
         <h2>实习经历</h2>
         <div class="resume-entry">
-          <div>
-            <h3>九天创智（深圳）科技有限公司</h3>
-            <p>算法开发实习生</p>
-          </div>
-          <div class="resume-date">
-            <p>深圳，中国</p>
-            <p>2025.07 - 2025.08</p>
-          </div>
+          <p class="resume-date">2025.07 - 2025.08</p>
+          <h3>九天创智（深圳）科技有限公司</h3>
+          <p class="resume-role">算法开发实习生</p>
         </div>
         <ul>
           <li>参与公司算法模块的开发与维护，主要负责深度学习模型的性能优化及边界条件测试。</li>
@@ -114,8 +108,6 @@
           <li>协助团队进行数据清洗与特征工程工作，提升模型训练数据的质量与规范性。</li>
         </ul>
       </section>
-
-      
 
       <section class="resume-section">
         <h2>专业技能</h2>

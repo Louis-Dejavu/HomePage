@@ -67,21 +67,26 @@ const translations = new Map([
   ["负责随机森林 QSPR 代理模型训练、遗传算法分子生成和分子特征维度对齐。", "Implemented random-forest QSPR surrogate modeling, genetic-algorithm molecule generation, and molecular feature alignment."],
   ["嵌入化学规则约束与模型验证流程，提升分子合规性与筛选效率。", "Integrated chemical validity constraints and model validation to improve compliance and screening efficiency."],
   ["技术栈：Random Forest、Genetic Algorithm、RDKit、SMILES、Pandas。", "Tech stack: Random Forest, Genetic Algorithm, RDKit, SMILES, Pandas."],
-  ["结构标签噪声下 PU 学习逻辑回归模型研究", "Logistic Regression for PU Learning Under Structured Label Noise"],
+  ["Propensity-Weighted Modified Logistic Regression for Robust PU Learning under Structural Label Noise", "Propensity-Weighted Modified Logistic Regression for Robust PU Learning under Structural Label Noise"],
   [
-    "探究经典逻辑回归模型在 PU 学习背景下的性能，围绕真实场景中的结构标签噪声与 SAR 假设挑战，构建可控随机与结构 PU 噪声注入机制，并提出 P-MLR 倾向加权改进逻辑回归模型。",
-    "Studied logistic regression in positive-unlabeled learning, built controllable random and structured PU noise injection mechanisms, and proposed P-MLR, a propensity-weighted improved logistic regression model."
+    "论文被 ICIC 2026（CCF-C）Oral 录用，研究 Positive-Unlabeled（PU）learning 在真实场景中因特征依赖标注产生的结构标签噪声问题。",
+    "Accepted as an oral paper at ICIC 2026 (CCF-C), this work studies structural label noise in Positive-Unlabeled (PU) learning caused by feature-dependent labeling in real-world settings."
   ],
   [
-    "通过参数化加权分支解耦目标类别分布与特征依赖标注倾向，在 5 个表格和非表格基准数据集上验证模型鲁棒性。该方法保留线性模型可解释性与轻量在线推理复杂度，尤其适配医疗与结构化表格数据场景。",
-    "Validated robustness on five tabular and non-tabular benchmark datasets by decoupling class distribution from feature-dependent labeling propensity, while preserving interpretability and lightweight online inference."
+    "构建可控随机与结构 PU 噪声机制，提出 Propensity-weighted Modified Logistic Regression（P-MLR），通过参数化加权分支解耦目标类别分布与特征依赖标注倾向。",
+    "It constructs controlled random and structural PU noise mechanisms and proposes Propensity-weighted Modified Logistic Regression (P-MLR), which decouples target class distribution from feature-dependent labeling propensity through a parameterized weighting branch."
   ],
+  [
+    "在 5 个表格与非表格基准数据集上验证模型在严重结构偏置下的鲁棒性，尤其适配医疗与结构化表格数据，同时保留线性模型可解释性与在线推理复杂度。",
+    "Experiments on five tabular and non-tabular benchmarks show robustness under severe structural bias, especially on medical and structured tabular data, while preserving linear-model interpretability and online inference complexity."
+  ],
+  ["录用信息", "Acceptance"],
   ["竞赛与荣誉", "Competitions & Honors"],
-  ["大学生创新创业大赛项目负责人", "Project lead, College Student Innovation and Entrepreneurship Competition"],
-  ["校级大学生创新创业大赛成员", "Member, university-level Innovation and Entrepreneurship Competition"],
-  ["计算机设计大赛省赛经历", "Provincial Computer Design Competition"],
-  ["美国大学生数学建模竞赛经历", "Mathematical Contest in Modeling"],
-  ["蓝桥杯省赛获奖", "Provincial Lanqiao Cup award"],
+  ["省级大学生创新创业大赛项目负责人", "Project lead, Provincial College Student Innovation and Entrepreneurship Competition"],
+  ["“挑战杯”校级一等奖", "First Prize, university-level Challenge Cup"],
+  ["计算机设计大赛省赛", "Provincial Computer Design Competition"],
+  ["美国大学生数学建模竞赛", "Mathematical Contest in Modeling"],
+  ["蓝桥杯省赛", "Provincial Lanqiao Cup"],
   ["2023-2024 学年综合一等奖学金", "First-Class Comprehensive Scholarship, 2023-2024"],
   ["2024-2025 学年综合三等奖学金", "Third-Class Comprehensive Scholarship, 2024-2025"],
   ["MIT 暑期“大川视界”科技加速营优秀学员", "Outstanding participant, MIT Summer Dachuan Vision Technology Accelerator"],
@@ -242,6 +247,131 @@ if (sections.length) {
 }
 
 applyLanguage(preferredLanguage);
+
+const modalShell = document.querySelector("[data-modal]");
+const modalContent = modalShell?.querySelector(".modal-content");
+const modalCloseButtons = modalShell?.querySelectorAll("[data-modal-close]") || [];
+const detailTriggers = document.querySelectorAll("[data-detail-target]");
+const previewTriggers = document.querySelectorAll("[data-preview-src]");
+let activeModalTrigger = null;
+
+const closeModal = () => {
+  if (!modalShell || !modalContent) {
+    return;
+  }
+
+  modalShell.hidden = true;
+  modalShell.setAttribute("aria-hidden", "true");
+  modalContent.innerHTML = "";
+  document.body.classList.remove("modal-open");
+
+  if (activeModalTrigger instanceof HTMLElement) {
+    activeModalTrigger.focus();
+  }
+};
+
+const openModal = (trigger, contentNode) => {
+  if (!modalShell || !modalContent || !contentNode) {
+    return;
+  }
+
+  activeModalTrigger = trigger;
+  modalContent.innerHTML = "";
+  modalContent.append(contentNode);
+  modalShell.hidden = false;
+  modalShell.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  applyLanguage(localStorage.getItem("siteLanguage") || "zh");
+
+  const closeButton = modalShell.querySelector(".modal-close");
+  if (closeButton instanceof HTMLElement) {
+    closeButton.focus();
+  }
+};
+
+detailTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const templateId = trigger.getAttribute("data-detail-target");
+    const template = templateId ? document.getElementById(templateId) : null;
+
+    if (!(template instanceof HTMLTemplateElement)) {
+      return;
+    }
+
+    openModal(trigger, template.content.cloneNode(true));
+  });
+});
+
+previewTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const source = trigger.getAttribute("data-preview-src");
+    const type = trigger.getAttribute("data-preview-type");
+    const title = trigger.getAttribute("data-preview-title") || "";
+    const caption = trigger.getAttribute("data-preview-caption") || "";
+
+    if (!source || !type) {
+      return;
+    }
+
+    const article = document.createElement("article");
+    article.className = "modal-article";
+
+    const heading = document.createElement("h2");
+    heading.textContent = title;
+    article.append(heading);
+
+    if (type === "pdf") {
+      const frame = document.createElement("iframe");
+      frame.className = "preview-frame";
+      frame.src = source;
+      frame.title = title;
+      article.append(frame);
+    } else {
+      const figure = document.createElement("figure");
+      figure.className = "modal-figure";
+
+      const image = document.createElement("img");
+      image.className = "preview-image";
+      image.src = source;
+      image.alt = title;
+      figure.append(image);
+
+      article.append(figure);
+    }
+
+    if (caption) {
+      const note = document.createElement("p");
+      note.className = "modal-caption";
+      note.textContent = caption;
+      article.append(note);
+    }
+
+    const actions = document.createElement("div");
+    actions.className = "modal-actions";
+
+    const openLink = document.createElement("a");
+    openLink.className = "button primary";
+    openLink.href = source;
+    openLink.target = "_blank";
+    openLink.rel = "noreferrer";
+    openLink.textContent = type === "pdf" ? "在新窗口打开材料" : "查看原图";
+    actions.append(openLink);
+
+    article.append(actions);
+
+    openModal(trigger, article);
+  });
+});
+
+modalCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeModal);
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && modalShell && !modalShell.hidden) {
+    closeModal();
+  }
+});
 
 const printTitle = "cv|范盛颉";
 const originalTitle = document.title;
