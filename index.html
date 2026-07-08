@@ -163,6 +163,23 @@
                 <li>技术栈：Random Forest、Genetic Algorithm、RDKit、SMILES、Pandas。</li>
               </ul>
             </article>
+
+            <article class="project-card">
+              <div class="item-meta">Raspberry Pi 5 · IoT · MediaPipe · PyQt5</div>
+              <h3>
+                <button type="button" class="inline-trigger title-trigger" data-detail-target="rockzhi-detail">
+                  ROCKZHI
+                </button>
+              </h3>
+              <p>
+                ROCKZHI 是一款一体化多功能桌面智能机器人，整合语音陪伴、健康监护、娱乐互动与居家环境控制，解决陪护、健康和娱乐类智能设备功能割裂的问题。
+              </p>
+              <ul>
+                <li>以树莓派 5 为核心主控，完成多外设接入与物联网感知系统搭建。</li>
+                <li>基于 MediaPipe 构建坐姿识别与手势识别模型，支持健康提醒与互动游戏。</li>
+                <li>技术栈：Python、PyQt5、Vosk、Paho-MQTT、WebSocket、MediaPipe。</li>
+              </ul>
+            </article>
           </div>
         </section>
 
@@ -431,6 +448,56 @@
         <div class="modal-actions">
           <a class="button primary" href="面向三次采油的 AI 驱动型分子反向设计平台/总体架构.png" target="_blank" rel="noreferrer">打开架构图</a>
           <a class="button" href="面向三次采油的 AI 驱动型分子反向设计平台/反向设计算法图.png" target="_blank" rel="noreferrer">打开算法图</a>
+        </div>
+      </article>
+    </template>
+
+    <template id="rockzhi-detail">
+      <article class="modal-article">
+        <p class="item-meta">Raspberry Pi 5 · IoT · MediaPipe · PyQt5</p>
+        <h2>ROCKZHI</h2>
+        <p>
+          ROCKZHI 是一款一体化多功能桌面智能机器人，面向情感陪伴、健康管理、休闲互动和简易智能家居控制等场景，
+          试图将原本分散在多台设备上的能力整合到单台桌面设备中。
+        </p>
+        <p>
+          <strong>硬件基础：</strong>以树莓派 5 为核心主控，接入摄像头、麦克风、扬声器、显示屏、温湿度/光敏传感器、
+          RGB 指示灯、按键、风扇等外设，并结合 ADC、三极管和面包板等电路组件，通过 MQTT 与 WebSocket 搭建完整物联网感知链路。
+        </p>
+        <p>
+          <strong>核心 AI 技术：</strong>基于 MediaPipe 构建两套视觉识别模型。坐姿识别整体准确率达到 94.68%，
+          可实时检测前倾等不良坐姿并弹窗预警；手势识别准确率最高达到 99.65%，支持石头剪刀布互动游戏。
+        </p>
+        <p>
+          <strong>四大使用场景：</strong>包括日常语音陪伴、手势互动娱乐、主动健康监护以及居家环境智能控制，
+          打通语音、视觉与环境感知能力，实现对话交互、坐姿告警、手势游戏、风扇调控和环境监测的一体化体验。
+        </p>
+        <p>
+          <strong>软件架构：</strong>项目采用 Python 搭建模块化分布式系统，将语音处理、视觉识别、界面显示、设备控制、
+          传感采集和灯光指示拆分为六大模块，并使用 PyQt5、Vosk、Paho-MQTT 等工具库实现异步交互、语音解析与物联网通信。
+        </p>
+        <div class="modal-grid">
+          <figure class="modal-figure">
+            <img src="rockzhi/rockzhi正面.jpg" alt="ROCKZHI 正面照片">
+            <figcaption>ROCKZHI 正面实物展示。</figcaption>
+          </figure>
+          <figure class="modal-figure">
+            <img src="rockzhi/rockzhi背面.jpg" alt="ROCKZHI 背面照片">
+            <figcaption>ROCKZHI 背面结构与外设接线展示。</figcaption>
+          </figure>
+        </div>
+        <figure class="modal-figure">
+          <iframe
+            class="preview-frame"
+            src="rockzhi/rock-zhi.pdf"
+            title="ROCKZHI 海报"
+          ></iframe>
+          <figcaption>项目海报可直接在弹框中预览，无需下载后查看。</figcaption>
+        </figure>
+        <div class="modal-actions">
+          <a class="button primary" href="rockzhi/rockzhi正面.jpg" target="_blank" rel="noreferrer">查看正面原图</a>
+          <a class="button" href="rockzhi/rockzhi背面.jpg" target="_blank" rel="noreferrer">查看背面原图</a>
+          <a class="button" href="rockzhi/rock-zhi.pdf" target="_blank" rel="noreferrer">单独打开海报</a>
         </div>
       </article>
     </template>
