@@ -67,10 +67,10 @@ const translations = new Map([
   ["负责随机森林 QSPR 代理模型训练、遗传算法分子生成和分子特征维度对齐。", "Implemented random-forest QSPR surrogate modeling, genetic-algorithm molecule generation, and molecular feature alignment."],
   ["嵌入化学规则约束与模型验证流程，提升分子合规性与筛选效率。", "Integrated chemical validity constraints and model validation to improve compliance and screening efficiency."],
   ["技术栈：Random Forest、Genetic Algorithm、RDKit、SMILES、Pandas。", "Tech stack: Random Forest, Genetic Algorithm, RDKit, SMILES, Pandas."],
-  ["Propensity-Weighted Modified Logistic Regression for Robust PU Learning under Structural Label Noise", "Propensity-Weighted Modified Logistic Regression for Robust PU Learning under Structural Label Noise"],
+  ["Propensity-Weighted Modified Logistic Regression for Robust PU Learning Under Structural Label Noise", "Propensity-Weighted Modified Logistic Regression for Robust PU Learning Under Structural Label Noise"],
   [
-    "论文被 ICIC 2026（CCF-C）Oral 录用，研究 Positive-Unlabeled（PU）learning 在真实场景中因特征依赖标注产生的结构标签噪声问题。",
-    "Accepted as an oral paper at ICIC 2026 (CCF-C), this work studies structural label noise in Positive-Unlabeled (PU) learning caused by feature-dependent labeling in real-world settings."
+    "论文已收录到 Springer 会议论文集《Advanced Intelligent Computing Technology and Applications》，研究 Positive-Unlabeled（PU）learning 在真实场景中因特征依赖标注产生的结构标签噪声问题。",
+    "The paper is now included in the Springer proceedings Advanced Intelligent Computing Technology and Applications, and studies structural label noise in Positive-Unlabeled (PU) learning caused by feature-dependent labeling in real-world settings."
   ],
   [
     "构建可控随机与结构 PU 噪声机制，提出 Propensity-weighted Modified Logistic Regression（P-MLR），通过参数化加权分支解耦目标类别分布与特征依赖标注倾向。",
@@ -80,6 +80,7 @@ const translations = new Map([
     "在 5 个表格与非表格基准数据集上验证模型在严重结构偏置下的鲁棒性，尤其适配医疗与结构化表格数据，同时保留线性模型可解释性与在线推理复杂度。",
     "Experiments on five tabular and non-tabular benchmarks show robustness under severe structural bias, especially on medical and structured tabular data, while preserving linear-model interpretability and online inference complexity."
   ],
+  ["Springer 出版页", "Springer page"],
   ["录用信息", "Acceptance"],
   ["竞赛与荣誉", "Competitions & Honors"],
   ["省级大学生创新创业大赛项目负责人", "Project lead, Provincial College Student Innovation and Entrepreneurship Competition"],
